@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>员工编号</th>
+    <th>员工姓名</th>
+    <th>员工工资</th>
+  </tr>
+  <tr th:if="${#lists.isEmpty(employeeList)}">
+    <td colspan="3">抱歉！没有查询到你搜索的数据！</td>
+  </tr>
+  <tr th:if="${not #lists.isEmpty(employeeList)}">
+    <td colspan="3">有数据！</td>
+  </tr>
+  <tr th:unless="${#lists.isEmpty(employeeList)}">
+    <td colspan="3">有数据！</td>
+  </tr>
+</table>
+<h3>测试each</h3>
+<table>
+  <thead>
+  <tr>
+    <th>员工编号</th>
+    <th>员工姓名</th>
+    <th>员工工资</th>
+    <th>序号</th>
+  </tr>
+  </thead>
+  <tbody th:if="${#lists.isEmpty(employeeList)}">
+  <tr>
+    <td colspan="3">抱歉！没有查询到你搜索的数据！</td>
+  </tr>
+  </tbody>
+  <tbody th:if="${not #lists.isEmpty(employeeList)}">
+  <!-- 遍历出来的每一个元素的名字 : ${要遍历的集合} -->
+  <tr th:each="employee, empStatus : ${employeeList}">
+    <td th:text="${employee.empId}">empId</td>
+    <td th:text="${employee.empName}">empName</td>
+    <td th:text="${employee.empSalary}">empSalary</td>
+    <td th:text="${empStatus.count}">count</td>
+  </tr>
+  </tbody>
+</table>
+<h3>包含模板文件</h3>
+<p>---------------------</p>
+<div th:fragment="header">
+  <p>被抽取出来的头部内容</p>
+</div>
+<!-- 代码片段所在页面的逻辑视图 :: 代码片段的名称 -->
+<p>---------------------</p>
+<div id="badBoy" th:insert="segment :: header">
+  <p>div标签的原始内容</p>
+</div>
+<p>---------------------</p>
+<div id="worseBoy" th:replace="segment :: header">
+  <p>div标签的原始内容</p>
+</div>
+<p>---------------------</p>
+<div id="worstBoy" th:include="segment :: header">
+  <p>div标签的原始内容</p>
+</div>
+</body>
+</html>

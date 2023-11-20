@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 在p标签的基础上，使用Thymeleaf的表达式，解析了一个URL地址 -->
+<p th:text="${url}">Thymeleaf将在这里显示一个Web应用地址</p>
+<p th:text="@{'/aaa/bbb'}">Thymeleaf将在这里显示一个解析出来的URL地址</p>
+</body>
+</html>
