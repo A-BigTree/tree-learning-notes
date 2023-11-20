@@ -275,7 +275,6 @@
 ------
 
 - `Weisfeiler-Lehman（WL）`：	
-  - 
 
 > OWL2Vec\* also allows the usage of the Weisfeiler Lehman (WL) kernel (Shervashidze et al., 2011) which encodes the structure of a sub-graph into a unique identity and thus enables the representation and incorporation of the sub-graph in a walk. For one vertex in the transformed single relation graph G′, there is an associated sub-graph (neighbourhood) starting from this vertex, and we simply call this sub-graph’s WL kernel (identity) as  this vertex’s WL kernel. In our implementation, we first extract the original random walks. For each random walk, we then keep the IRIs of the starting vertex and the vertices that are obtained from the relations, but replace the IRIs of the none-starting vertices that are obtained from the subjects or objects with their WL kernels. Ex3 in Table 2 is an example of enabling the WL sub-graph kernel for the walk of Ex2. Note that when calculating a vertex’s WL kernel, the size of its sub-graph, i.e., the depth from this vertex to the farthest vertex in the sub-graph can be set. We generate and adopt all the walks, with the sub-graph size ranging from 0 to a maximum size — a hyper-parameter that is set to 4 by default. Specially, the WL kernel enabled random walk with the sub-graph size of 0 is equivalent to the original random walk.  
 
@@ -286,7 +285,6 @@
 -------
 
 - `OWL Manchester Syntax`OWL曼彻斯特语法：
-  - 。。。
 
 > To capture the logical constructors, OWL2Vec\* extracts all the axioms of the ontology and complements the sentences of the structure document. In our implementation, each ontology axiom is transformed into a sequence following the OWL Manchester Syntax, where the original built-in terms such as “subClassOf” and “some” are kept. Ex4 in Table 2 is an example of such Manchester Syntax sentence according to the axiom of the existential restriction of the class obo:FOODON_00002809 (edamame). In comparison with the random walk over the projected RDF graph, which generates the sentence of (obo:FOODON_00002809, obo:RO_0001000, obo:FOODON_03411347) for the same axiom in Ex4, the Manchester Syntax sentence indicates the logical relationship between the terms by the buit-in terms; while in comparison with the random walk over the graph transformed by W3C OWL to RDF Graph Mapping, the Manchester syntax sentence is shorter and avoids the blank nodes.  
 
