@@ -144,4 +144,7 @@ $$
 
 <img src="./Text-Augmented%20Open%20Knowledge%20Graph%20Completion%20via%20Pre-Trained%20Language%20Models.assets/image-20231204160453070.png" alt="image-20231204160453070" style="zoom:67%;" />
 
- 
+- 支持信息在TagReal中是可选的，如果没有匹配的数据，将其保留为空；
+
+### 3.4 训练
+
