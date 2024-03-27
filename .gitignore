@@ -25,3 +25,7 @@ replay_pid*
 
 #pdf file
 *.pdf
+
+.idea/
+
+*.py
